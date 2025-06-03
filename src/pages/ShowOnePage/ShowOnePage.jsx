@@ -1,4 +1,4 @@
-import Item from "../../components/Card/Card"
+// import Item from "../../components/Card/Card"
 
 export default function ShowOnePage(){
     return (

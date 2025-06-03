@@ -15,6 +15,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/auth" element={<AuthPage />} />
+          {/* <Route path="/requests" element={</>} */}
+          {/* <Route path="/offers" element={</>} */}
           <Route path="/offers/:id" element={<ShowOnePage />} />
           <Route path="/requests/:id" element={<ShowOnePage />} />
         </Routes>

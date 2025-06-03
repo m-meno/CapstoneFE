@@ -1,5 +1,6 @@
 import axios from "axios";
 import {useState, useEffect} from "react";
+import PostForm from "../../components/Forms/PostForm";
 
 
 
@@ -50,7 +51,10 @@ export default function Homepage() {
         //     return <Item request={request}/>
         // })
         // </>
+        <>
         <h1>Homepage</h1>
+        <PostForm/>
+        </>
     )
 
 
