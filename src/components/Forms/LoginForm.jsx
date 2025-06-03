@@ -2,13 +2,13 @@ import { useState } from "react";
 import { useAuth } from "../../context/auth/authContext";
 import { useNavigate } from "react-router-dom";
 
-export default function LoginForm() {
+export default function LoginForm( {setNewUser}) {
     const { login } = useAuth();
     const nav = useNavigate();
 
     const [formData, setFormData] = useState({
         email: "",
-        password: ""
+        password: "",
     });
 
     function handleChange(e) {
@@ -19,7 +19,7 @@ export default function LoginForm() {
         e.preventDefault();
         try {
             await login(formData);
-            //   nav("/homepage")
+            nav("/")
 
         } catch (err) {
             console.error(err)

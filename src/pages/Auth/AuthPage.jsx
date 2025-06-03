@@ -4,9 +4,12 @@ import {useState} from "react";
 export default function AuthPage(){
     const [newUser, setNewUser] = useState(false)
 
-    return(
-        <>
+    return newUser ? (
+        <RegisterForm setNewUser={setNewUser}/>
+
+     ) : (
+
         <LoginForm setNewUser={setNewUser}/>
-        </>
-    )
+    
+    );
 }
