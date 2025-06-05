@@ -1,6 +1,7 @@
 import axios from "axios";
 import {useState, useEffect} from "react";
 import PostForm from "../../components/Forms/PostForm";
+import Card from "../../components/Card/Card";
 
 
 
@@ -28,7 +29,7 @@ export default function Homepage() {
     return (
         <>
         <div>
-            {posts.map((post) => {return <Item post={post}/>})}
+            {posts.map((post) => {return <Card post={post}/>})}
         </div>    
         
         </>

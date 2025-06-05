@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../../context/auth/authContext";
 import { useNavigate } from "react-router-dom";
+import style from "./Form.module.css"
 
 export default function LoginForm( {setNewUser}) {
     const { login } = useAuth();
@@ -35,7 +36,18 @@ export default function LoginForm( {setNewUser}) {
                 <input onChange={handleChange} type="text" name="email" placeholder="Enter email..." />
                 <input onChange={handleChange} type="text" name="password" placeholder="Enter password..." />
                 <input type="submit" value="Login"/>
+                <p>
+                    Not a User?{" "}
+                    <span className={style.toggle}
+                    onClick={()=> {
+                        setNewUser(true)
+                    }}
+                    >
+                        Register
+                    </span>
+                </p>
             </form>
+          
         </>
     )
 }

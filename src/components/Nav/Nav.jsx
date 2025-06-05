@@ -40,14 +40,12 @@ export default function Nav(){
                     <Link to="/">Home</Link>
                 </li>
                 <li>
-                    <Link to="/offers">Offers</Link>
-                </li>
-                <li>
-                    <Link to="/requests">Requests</Link>
-                </li>
-                <li>
                     <Link to="/auth">Login</Link>
                 </li>
+                <li>
+                    <Link to="/dashboard">Dashboard</Link>
+                </li>
+
             </ul>
         </nav>
     )

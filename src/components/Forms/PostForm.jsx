@@ -4,6 +4,7 @@ export default function PostForm() {
     const [formType, setFormType] = useState("")
 
     const [formData, setFormData] = useState({
+        type: "",
         title: "",
         description: "",
         location: "",
@@ -12,6 +13,7 @@ export default function PostForm() {
 
     function handleChange(e) {
         setFormType(e.target.value)
+        setFormData({...setFormData, [e.target.name]: e.target.value})
     }
 
     function handleInputChange(e){
@@ -20,15 +22,17 @@ export default function PostForm() {
 
     const offer = (formType === 'offer')
 
-    async function handleSubmit(e) {
+    async function handleSubmit(e, formData) {
         e.preventDefault();
         try {
             if (formType === 'offer') {
                 if (!formData.title || !formData.description || !formData.location || !formData.img)
                     return alert(`Please fill out all fields`)
             } else if (!formData.title || !formData.description) {
-                return alert(`Please fill out all fields`)
-            }
+                return alert(`The title and description fields are required`)
+            } 
+        const res = axios.post(`http://localhost:3000/post`, formData)    
+
         } catch (error) {
 
         }
@@ -42,11 +46,11 @@ export default function PostForm() {
             <h1>Select the post you would like to create:</h1>
             <form>
                 <div>
-                    <input onChange={handleChange} type="radio" name="post" value="offer" />
+                    <input onChange={handleChange} type="radio" name="type" value="Offer" />
                     <label>Offer</label>
                 </div>
                 <div>
-                    <input onChange={handleChange} type="radio" name="post" value="request" />
+                    <input onChange={handleChange} type="radio" name="type" value="Request" />
                     <label>Request</label>
                 </div>
             </form>
