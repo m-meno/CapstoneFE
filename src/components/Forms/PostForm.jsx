@@ -31,7 +31,7 @@ export default function PostForm() {
             } else if (!formData.title || !formData.description) {
                 return alert(`The title and description fields are required`)
             } 
-        const res = axios.post(`http://localhost:3000/post`, formData)    
+        const res = await axios.post(`http://localhost:3000/post`, formData)    
 
         } catch (error) {
 

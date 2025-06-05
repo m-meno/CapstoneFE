@@ -5,7 +5,7 @@ import style from "./Form.module.css"
 
 
 
-export default function RegisterForm({setNewUser}) {
+export default function RegisterForm({ setNewUser }) {
     const { signup } = useAuth();
     const nav = useNavigate();
 
@@ -35,7 +35,7 @@ export default function RegisterForm({setNewUser}) {
         }
 
         if (!formData.email || !emailRegex.test(formData.email)) {
-           errors.push(`Please include a valid email`)
+            errors.push(`Please include a valid email`)
         }
 
         if (!formData.password || formData.password !== formData.password2) {
@@ -47,13 +47,13 @@ export default function RegisterForm({setNewUser}) {
         }
 
         console.log(errors)
-        if (errors.length){
-            let alert = errors.map((err)=>{
+        if (errors.length) {
+            let alert = errors.map((err) => {
                 return err
             })
 
             setError(alert);
-            setTimeout(()=>{
+            setTimeout(() => {
                 setError(null)
             }, 2000);
             return;
@@ -62,7 +62,7 @@ export default function RegisterForm({setNewUser}) {
         try {
             await signup(formData);
 
-            nav("/")
+            nav("/dashboard")
 
         } catch (err) {
             alert("Registeration failed. Make sure you do not already have an account.")
@@ -88,7 +88,7 @@ export default function RegisterForm({setNewUser}) {
                     </span>
                 </p>
             </form>
-           
+
         </>
     )
 }

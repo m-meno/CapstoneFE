@@ -20,7 +20,7 @@ export default function LoginForm( {setNewUser}) {
         e.preventDefault();
         try {
             await login(formData);
-            nav("/")
+            nav("/dashboard")
 
         } catch (err) {
             console.error(err)
