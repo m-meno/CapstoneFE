@@ -56,9 +56,9 @@ export default function PostForm() {
                     <h2>New Offer</h2>
                     <form onSubmit={handleSubmit}>
                         <input onChange={handleInputChange} type="text" name="title" placeholder="Title" />
-                        <input onChange={handleInputChange} type="text" name="description" placeholder="Description" />
+                        <input onChange={handleInputChange} type="text" name="description" placeholder="Description"  />
                         <input onChange={handleInputChange} type="text" name="location" placeholder="Location" />
-                        <input onChange={handleInputChange} type="text" name="img" placeholder="Image" />
+                        <input onChange={handleInputChange} type="text" name="img" placeholder="Image"  />
                         <input type="submit"/>
                     </form>
                 </>
@@ -67,7 +67,8 @@ export default function PostForm() {
                     <h2>New Request</h2>
                     <form onSubmit={handleSubmit}>
                         <input onChange={handleInputChange} type="text" name="title" placeholder="Title" />
-                        <input onChange={handleInputChange} type="text" name="description" placeholder="Description" />
+                        <input onChange={handleInputChange} type="text" name="description" placeholder="Description"  />
+                        <input onChange={handleInputChange} type="text" name="img" placeholder="Image (optional)"  />
                         <input type="submit"/>
                     </form>
                 </>

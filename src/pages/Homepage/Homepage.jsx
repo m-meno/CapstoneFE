@@ -5,31 +5,16 @@ import PostForm from "../../components/Forms/PostForm";
 
 
 export default function Homepage() {
-    const [offers, setOffers] = useState([]);
-    const [requests, setRequests] = useState([]);
+    const [posts, setPosts] = useState([])
 
-    async function getAllOffers() {
+    async function getAllPosts() {
         try {
-            //defines endpoint for all offers
-            let url = `http://localhost:3000/api/offers`;
+            //defines endpoint for all posts
+            let url = `http://localhost:3000/api/posts`;
             const res = await axios(url);
             let data = res.data;
             // updates offers state with fetched data
-            setOffers(data)
-            console.log(data)
-        } catch (err) {
-            console.error(err)
-        }
-    }
-
-        async function getAllRequests() {
-        try {
-            //defines endpoint for all requests
-            let url = `http://localhost:3000/api/requests`;
-            const res = await axios(url);
-            let data = res.data;
-            // updates request state with fetched data
-            setRequests(data)
+            setPosts(data)
             console.log(data)
         } catch (err) {
             console.error(err)
@@ -37,23 +22,15 @@ export default function Homepage() {
     }
 
     useEffect(()=>{
-        getAllOffers();
-        getAllRequests();
+        getAllPosts();
     }, [])
 
     return (
-        // <>
-        // offers.map((offer)=>{
-        //     return <Item offer={offer}/>
-        // })
-
-        // requests.map((request)=> {
-        //     return <Item request={request}/>
-        // })
-        // </>
         <>
-        <h1>Homepage</h1>
-        <PostForm/>
+        <div>
+            {posts.map((post) => {return <Item post={post}/>})}
+        </div>    
+        
         </>
     )
 
