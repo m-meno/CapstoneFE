@@ -1,7 +1,11 @@
 import { useState } from "react";
+import { useAuth } from "../../context/auth/authContext";
+import axios from "axios";
+
 
 export default function PostForm() {
     const [formType, setFormType] = useState("")
+    const {cookies} = useAuth()
 
     const [formData, setFormData] = useState({
         type: "",
@@ -13,25 +17,31 @@ export default function PostForm() {
 
     function handleChange(e) {
         setFormType(e.target.value)
-        setFormData({...setFormData, [e.target.name]: e.target.value})
+        setFormData({...formData, [e.target.name]: e.target.value})
     }
 
     function handleInputChange(e){
         setFormData({...formData, [e.target.name]: e.target.value})
     }
 
-    const offer = (formType === 'offer')
+    const offer = (formType === 'Offer')
 
-    async function handleSubmit(e, formData) {
+    async function handleSubmit(e) {
         e.preventDefault();
         try {
-            if (formType === 'offer') {
+            if (formType === 'Offer') {
                 if (!formData.title || !formData.description || !formData.location || !formData.img)
                     return alert(`Please fill out all fields`)
             } else if (!formData.title || !formData.description) {
                 return alert(`The title and description fields are required`)
             } 
-        const res = await axios.post(`http://localhost:3000/post`, formData)    
+
+            console.log(formData)
+            const res = await axios.post(`http://localhost:3000/api/post`, formData, {
+            headers: {token: cookies.token}
+            
+        })    
+        
 
         } catch (error) {
 
@@ -77,6 +87,7 @@ export default function PostForm() {
                     </form>
                 </>
             )}
+
         </>
     )
 }

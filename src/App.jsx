@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import ShowOnePage from './pages/ShowOnePage/ShowOnePage';
 import Dashboard from './pages/Dashboard/Dashboard';
 
+
 function App() {
 
   return (
@@ -15,7 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/auth" element={<AuthPage />} />
-          <Route path="/posts/:id" element={<ShowOnePage />} />
+          <Route path="/api/post/:id" element={<ShowOnePage />} />
           <Route path="/dashboard" element={<Dashboard/>}/>
         </Routes>
       </main>

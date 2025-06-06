@@ -2,7 +2,7 @@ import {Link} from "react-router-dom";
 
 export default function Card({post}){
     let endpoint = `/api/post/${post._id}`
-    
+
     return(
         <div>
             <img src={post.url}/>

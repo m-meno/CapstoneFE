@@ -11,7 +11,7 @@ export default function Homepage() {
     async function getAllPosts() {
         try {
             //defines endpoint for all posts
-            let url = `http://localhost:3000/api/posts`;
+            let url = `http://localhost:3000/api/post`;
             const res = await axios(url);
             let data = res.data;
             // updates offers state with fetched data
@@ -29,7 +29,7 @@ export default function Homepage() {
     return (
         <>
         <div>
-            {posts.map((post) => {return <Card post={post}/>})}
+            {posts.map((post) => {return <Card key={post._id} post={post}/>})}
         </div>    
         
         </>
