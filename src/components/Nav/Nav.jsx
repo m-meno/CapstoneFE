@@ -1,52 +1,61 @@
 import { Link } from "react-router-dom";
-import {useEffect} from "react"
+import { useEffect } from "react"
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { userInfo } from "../../context/user/userContext";
+import { useAuth } from "../../context/auth/authContext";
 
-export default function Nav(){
-    // const {user, setUser} = userInfo();
-    // const {cookies, logout} = useAuth();
-    // const nav = useNavigate();
+export default function Nav() {
+    const { user, setUser } = userInfo();
+    const { cookies, logout } = useAuth();
+    const nav = useNavigate();
 
-    // useEffect(()=>{
-    //     async function checkUser(){
-    //         if (cookies.token && !user) {
-    //             try{
-    //                 let res = await axios(`http://localhost:3000/api/user`, {
-    //                     headers: {token: cookies.token},
-    //                 });
+    useEffect(() => {
+        async function checkUser() {
+            if (cookies.token && !user) {
+                try {
+                    let res = await axios(`http://localhost:3000/api/user`, {
+                        headers: { token: cookies.token },
+                    });
 
-    //                 const {username, email} = res.data;
-    //                 setUser({username, email})
-    //             } catch(err){
-    //                 console.error(err.message)
-    //             }
-    //         }
-    //     }
-    //     checkUser();
-    // }, []);
+                    const { username, email } = res.data;
+                    setUser({ username, email })
+                } catch (err) {
+                    console.error(err.message)
+                }
+            }
+        }
+        checkUser();
+    }, []);
 
-    // function handleLogout(){
-    //     logout();
+    function handleLogout() {
+        logout();
 
-    //     nav("/");
-    // }
+        nav("/");
+    }
 
-    return(
+    return (
         <nav>
             <ul>
                 <li>
                     <Link to="/">Home</Link>
                 </li>
-                <li>
-                    <Link to="/auth">Login</Link>
-                </li>
-                <li>
-                    <Link to="/dashboard">Dashboard</Link>
-                </li>
-
+                {cookies.token ? (
+                    <>
+                        <li>
+                            <Link to="/dashboard">Dashboard</Link>
+                        </li>
+                        <li>
+                            <button onClick={handleLogout}>Logout</button>
+                        </li>
+                    </>
+                ) : (
+                    <li>
+                        <Link to="/auth">Login</Link>
+                    </li>
+                )}
             </ul>
         </nav>
+
     )
 }

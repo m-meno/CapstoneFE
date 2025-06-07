@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { useAuth } from "../../context/auth/authContext";
 import axios from "axios";
+import { useNavigate, useParams } from "react-router-dom";
 
 
 export default function PostForm() {
-    const [formType, setFormType] = useState("")
-    const {cookies} = useAuth()
+    const [formType, setFormType] = useState(null);
+    const {cookies} = useAuth();
+    const nav = useNavigate();
+    const {id} = useParams();
 
     const [formData, setFormData] = useState({
         type: "",
@@ -24,6 +27,7 @@ export default function PostForm() {
         setFormData({...formData, [e.target.name]: e.target.value})
     }
 
+    const selection = formType === `Offer` || formType === `Request`;
     const offer = (formType === 'Offer')
 
     async function handleSubmit(e) {
@@ -39,9 +43,8 @@ export default function PostForm() {
             console.log(formData)
             const res = await axios.post(`http://localhost:3000/api/post`, formData, {
             headers: {token: cookies.token}
-            
-        })    
-        
+        })   
+            alert(`Post created.`)
 
         } catch (error) {
 
@@ -53,7 +56,7 @@ export default function PostForm() {
 
     return (
         <>
-            <h1>Select the post you would like to create:</h1>
+            <h3>Select the post you would like to create:</h3>
             <form>
                 <div>
                     <input onChange={handleChange} type="radio" name="type" value="Offer" />
@@ -64,8 +67,8 @@ export default function PostForm() {
                     <label>Request</label>
                 </div>
             </form>
-
-            {offer ? (
+        {selection ? (
+            offer ? (
                 <>
                     <h2>New Offer</h2>
                     <form onSubmit={handleSubmit}>
@@ -86,8 +89,13 @@ export default function PostForm() {
                         <input type="submit"/>
                     </form>
                 </>
-            )}
+            )
+            ) : (
 
+                <p>Please make a selection.</p>
+
+            )}
+            
         </>
     )
 }

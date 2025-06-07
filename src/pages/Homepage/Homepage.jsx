@@ -24,10 +24,25 @@ export default function Homepage() {
 
     useEffect(()=>{
         getAllPosts();
-    }, [])
+    }, []);
+
+    function handleFilter(e){
+        if(e.target.value) nav(`/category/${e.target.value}`);
+        else nav("/")
+    }
 
     return (
         <>
+        <li>
+            <label>
+                <strong>Filter By:</strong>
+                <select onSelect={handleFilter}>
+                    <option value="">...</option>
+                    <option value="Offers">Offers</option>
+                    <option value="Requests">Requests</option>
+                </select>
+            </label>
+        </li>
         <div>
             {posts.map((post) => {return <Card key={post._id} post={post}/>})}
         </div>    

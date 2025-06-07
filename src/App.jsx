@@ -15,6 +15,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Homepage />} />
+          {/* <Route path="/type/:type" element={<TypePage/>}/> */}
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/api/post/:id" element={<ShowOnePage />} />
           <Route path="/dashboard" element={<Dashboard/>}/>
