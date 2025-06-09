@@ -34,10 +34,10 @@ export default function Dashboard() {
             <h1>Dashboard</h1>
             <PostForm />
             <div>
-                {userPosts.map((userPost) => { return <Card key={userPost._id} userPost={userPost} /> })}
+                {userPosts.map((post) => { return <Card key={post._id} post={post} /> })}
             </div>
             <h2>User information:</h2>
-            <h4>Username:</h4>
+            <h4>Username: </h4>
         </>
     )
 }

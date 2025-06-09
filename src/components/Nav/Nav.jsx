@@ -9,15 +9,12 @@ export default function Nav() {
     const { user, setUser } = userInfo();
     const { cookies, logout } = useAuth();
     const nav = useNavigate();
-    const {id} = useParams();
-
-    //added useParams and added ${id} to the axios request url. New error now?
 
     useEffect(() => {
         async function checkUser() {
             if (cookies.token && !user) {
                 try {
-                    let res = await axios(`http://localhost:3000/api/user/${id}`, {
+                    let res = await axios(`http://localhost:3000/api/user`, {
                         headers: { token: cookies.token },
                     });
 
