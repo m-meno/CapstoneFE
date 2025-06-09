@@ -29,14 +29,14 @@ export default function PostListProvider({children}){
 
     return(
         <PostListContext.Provider
-            value={(
+            value={{
                 postList,
                 setPostList,
                 removeFromPostList,
                 getType,
                 updatePostList,
                 addToPostList
-            )}
+            }}
             >
             {children}
             </PostListContext.Provider>

@@ -2,11 +2,16 @@ import axios from "axios";
 import {useState, useEffect} from "react";
 import PostForm from "../../components/Forms/PostForm";
 import Card from "../../components/Card/Card";
+import { usePostList } from "../../context/post/postContext";
+import { useNavigate } from "react-router-dom";
 
 
 
 export default function Homepage() {
-    const [posts, setPosts] = useState([])
+    const [posts, setPosts] = useState([]);
+    // const {postList, setPostList} = usePostList();
+    const nav = useNavigate();
+
 
     async function getAllPosts() {
         try {
@@ -27,7 +32,7 @@ export default function Homepage() {
     }, []);
 
     function handleFilter(e){
-        if(e.target.value) nav(`/category/${e.target.value}`);
+        if(e.target.value) nav(`/type/${e.target.value}`);
         else nav("/")
     }
 
@@ -36,10 +41,10 @@ export default function Homepage() {
         <li>
             <label>
                 <strong>Filter By:</strong>
-                <select onSelect={handleFilter}>
+                <select onChange={handleFilter}>
                     <option value="">...</option>
-                    <option value="Offers">Offers</option>
-                    <option value="Requests">Requests</option>
+                    <option value="Offer">Offers</option>
+                    <option value="Request">Requests</option>
                 </select>
             </label>
         </li>
