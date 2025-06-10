@@ -5,7 +5,7 @@ export default function Card({post}){
 
     return(
         <div>
-            <img src={post.url}/>
+            <img src={`http://localhost:3000/uploads/${post.img}`} alt={post.title} style={{maxWidth: "60%"}}/>
             <h2><Link to={endpoint}>{post.title}</Link></h2>
             <h4>{post.location}</h4>
         </div>

@@ -15,7 +15,6 @@ export default function Dashboard() {
             let url = `http://localhost:3000/api/post?user=${user._id}`;
             const res = await axios(url);
             let data = res.data;
-            // let userPost = data.filter((post) => post.user == user._id)
             setUserPosts(data)
         } catch (err) {
             console.error(err)
