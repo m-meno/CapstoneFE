@@ -48,13 +48,9 @@ export default function Homepage() {
                 </select>
             </label>
         </li>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
-            {posts.map((post)=> (
-                <div key = {post._id} className="bg-white rounded shadow p-4 w-full h-72" >
-            <Card post={post}/>
-            </div>
-         ))}
-        </div>    
+        <div>
+            {posts.map((post) => {return <Card key={post._id} post={post}/>})}
+        </div>
         
         </>
     )

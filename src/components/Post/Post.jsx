@@ -45,11 +45,17 @@ export default function Post({ post }) {
 
     async function handleDelete(e){
         try {
-        let deletedPost = await axios.delete(`http://localhost:3000/api/post/${id}`, {
+        const response = confirm(`Are you sure you want to delete this post?`) 
+        if (response) {
+            let deletedPost = await axios.delete(`http://localhost:3000/api/post/${id}`, {
             headers: {
                    token:  cookies.token
                 } 
-        });
+
+                 });
+        } else {
+            return;
+        }
         alert(`Post deleted`)
         nav('/dashboard')
         } catch (err) {
@@ -104,9 +110,9 @@ export default function Post({ post }) {
                     {edit ? (
                     
                         <form onSubmit={handleSubmit}>
-                            <input onChange={handleInputChange} type="text" name="title" placeholder="Title" value={post.title} />
-                            <input onChange={handleInputChange} type="text" name="description" placeholder="Description" value={post.description}/>
-                            <input onChange={handleInputChange} type="text" name="location" placeholder="Location" value={post.location} />
+                            <input onChange={handleInputChange} type="text" name="title" placeholder="Title" value={formData.title} />
+                            <input onChange={handleInputChange} type="text" name="description" placeholder="Description" value={formData.description}/>
+                            <input onChange={handleInputChange} type="text" name="location" placeholder="Location" value={formData.location} />
                             <input onChange={handleUploadChange} type="file" name="img" placeholder="Image" />
                             <input type="submit" value="Save Changes"/>
                         </form>
