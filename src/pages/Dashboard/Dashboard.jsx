@@ -5,7 +5,11 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function Dashboard() {
-    const { user } = userInfo();
+    const { user } = userInfo({
+        email: "",
+        username: "",
+        location: ""
+    });
     console.log({ user })
 
     const [userPosts, setUserPosts] = useState([]);
@@ -35,8 +39,17 @@ export default function Dashboard() {
             <div>
                 {userPosts.map((post) => { return <Card key={post._id} post={post} /> })}
             </div>
-            <h2>User information:</h2>
-            <h4>Username: </h4>
+
+            { user ? (
+            <div >
+                <h2>User information: </h2>
+                <h4>Username: {user.username} </h4>
+                <h4>Email: {user.email} </h4>
+                <h4>Location: {user.location}</h4>
+            </div> ) : (
+                null
+            )
+        }
         </>
     )
 }

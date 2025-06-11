@@ -79,12 +79,12 @@ export default function PostForm() {
             <h3>Select the post you would like to create:</h3>
             <form>
                 <div>
-                    <input onChange={handleChange} type="radio" name="type" value="Offer" />
-                    <label>Offer</label>
+                    <input id="offer" onChange={handleChange} type="radio" name="type" value="Offer" />
+                    <label htmlFor="offer">Offer</label>
                 </div>
                 <div>
-                    <input onChange={handleChange} type="radio" name="type" value="Request" />
-                    <label>Request</label>
+                    <input id="request" onChange={handleChange} type="radio" name="type" value="Request" />
+                    <label htmlFor="request">Request</label>
                 </div>
             </form>
             {selection ? (
@@ -92,22 +92,31 @@ export default function PostForm() {
                     <>
                         <h2>New Offer</h2>
                         <form onSubmit={handleSubmit} encType="multipart/form-data">
-                            <input onChange={handleInputChange} type="text" name="title" placeholder="Title" />
-                            <input onChange={handleInputChange} type="text" name="description" placeholder="Description" />
-                            <input onChange={handleInputChange} type="text" name="location" placeholder="Location" />
-                            <input onChange={handleUploadChange} type="file" name="img" placeholder="Image" />
+                            <label htmlFor="title">Title:*</label>
+                            <input id="title" onChange={handleInputChange} type="text" name="title" placeholder="Title*" /><br/>
+                            <label htmlFor="description">Description:*</label>
+                                <input id="description" onChange={handleInputChange} type="text" name="description" placeholder="Description*" /><br/>
+                            <label htmlFor="location">Location:*</label>
+                                <input id="location" onChange={handleInputChange} type="text" name="location" placeholder="Location*" /><br/>
+                            <label htmlFor="img">Upload image:*</label>
+                            <input id="img" onChange={handleUploadChange} type="file" name="img" placeholder="Image" /><br/>
                             <input type="submit" />
                         </form>
+                        <p>Asterisks indicate required fields.</p>
                     </>
                 ) : (
                     <>
                         <h2>New Request</h2>
                         <form onSubmit={handleSubmit}>
-                            <input onChange={handleInputChange} type="text" name="title" placeholder="Title" />
-                            <input onChange={handleInputChange} type="text" name="description" placeholder="Description" />
-                            <input onChange={handleUploadChange} type="file" name="img" placeholder="Image (optional)" />
+                            <label htmlFor="title">Title:*</label>
+                                <input id="title" onChange={handleInputChange} type="text" name="title" placeholder="Title*" /><br/>
+                            <label htmlFor="description">Description:*</label>
+                                <input id="description" onChange={handleInputChange} type="text" name="description" placeholder="Description*" /><br/>
+                            <label htmlFor="img">Upload image:</label>
+                                <input id="img" onChange={handleUploadChange} type="file" name="img" /><br/>
                             <input type="submit" />
                         </form>
+                        <p>Asterisks indicate required fields.</p>
                     </>
                 )
             ) : (
