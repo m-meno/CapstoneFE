@@ -3,6 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../../context/auth/authContext";
+import styles from "./Post.module.css"
 
 
 export default function Post({ post }) {
@@ -97,19 +98,21 @@ export default function Post({ post }) {
 
     return (
         <>
-            <div>
-                <img src={`http://localhost:3000/uploads/${post.img}`} alt={post.title} style={{maxWidth: "60%"}}/>
-                <h3>{post.title}</h3>
-                <h4>{post.location}</h4>
-                <p>{post.description}</p>
+            <div className={styles.postContainer}>
+                <img className={styles.postImage} src={`http://localhost:3000/uploads/${post.img}`} alt={post.title}/>
+                <div className={styles.postDetails}>
+                    <h3 className={styles.postTitle}>{post.title}</h3>
+                    <h4 className={styles.postLocation}>{post.location}</h4>
+                    <p className={styles.postDescription}>{post.description}</p>
+                </div>
             </div>
             {editing ? (
-                <div>
+                <div className={styles.buttonGroup}>
                     <button onClick={handleEditClick}>Edit</button>
 
                     {edit ? (
                     
-                        <form onSubmit={handleSubmit}>
+                        <form className={styles.editForm} onSubmit={handleSubmit}>
                             <input onChange={handleInputChange} type="text" name="title" placeholder="Title" value={formData.title} />
                             <input onChange={handleInputChange} type="text" name="description" placeholder="Description" value={formData.description}/>
                             <input onChange={handleInputChange} type="text" name="location" placeholder="Location" value={formData.location} />

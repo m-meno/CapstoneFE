@@ -3,16 +3,14 @@ import { userInfo } from "../../context/user/userContext"
 import Card from "../../components/Card/Card";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import style from "./Dashboard.module.css"
 
 export default function Dashboard() {
-    const { user } = userInfo({
-        email: "",
-        username: "",
-        location: ""
-    });
+    const { user } = userInfo({});
     console.log({ user })
 
     const [userPosts, setUserPosts] = useState([]);
+    const [createPost, setCreatePost] = useState(false);
 
     async function getUserPosts() {
         try {
@@ -32,16 +30,31 @@ export default function Dashboard() {
 
     }, [user])
 
+    function handleClick(){
+        setCreatePost(!createPost)
+    }
+
     return (
-        <>
+        <>  
+            <div className={style.dashboard}>
             <h1>Dashboard</h1>
-            <PostForm />
-            <div>
+            <button className={style.button}onClick={handleClick}>Create a Post</button>
+            {createPost ? (
+            <div className={style.section}>
+                <PostForm />
+            </div>
+            ) : ( null 
+
+            )}
+            <div className={style.section}>
+                <h2>My Posts</h2>
+                <div className={style.cardGrid}>
                 {userPosts.map((post) => { return <Card key={post._id} post={post} /> })}
+                </div>
             </div>
 
             { user ? (
-            <div >
+            <div className={style.section}>
                 <h2>User information: </h2>
                 <h4>Username: {user.username} </h4>
                 <h4>Email: {user.email} </h4>
@@ -50,6 +63,7 @@ export default function Dashboard() {
                 null
             )
         }
+        </div>
         </>
     )
 }

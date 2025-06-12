@@ -1,0 +1,95 @@
+.postContainer {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.postImage {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.postDetails {
+  margin-bottom: 1rem;
+}
+
+.postTitle {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.postLocation {
+  font-size: 1rem;
+  color: #777;
+}
+
+.postDescription {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.button {
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.editButton {
+  background-color: #1976d2;
+  color: white;
+}
+
+.deleteButton {
+  background-color: #d32f2f;
+  color: white;
+}
+
+.button:hover {
+  filter: brightness(1.1);
+}
+
+.editForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.editForm input[type="text"],
+.editForm input[type="file"] {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.editForm input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 0.7rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.editForm input[type="submit"]:hover {
+  background-color: #43a047;
+}

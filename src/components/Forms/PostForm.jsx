@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useAuth } from "../../context/auth/authContext";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import style from "./Form.module.css"
 
 
 export default function PostForm() {
@@ -76,52 +77,55 @@ export default function PostForm() {
 
     return (
         <>
-            <h3>Select the post you would like to create:</h3>
-            <form>
-                <div>
-                    <input id="offer" onChange={handleChange} type="radio" name="type" value="Offer" />
-                    <label htmlFor="offer">Offer</label>
-                </div>
-                <div>
-                    <input id="request" onChange={handleChange} type="radio" name="type" value="Request" />
-                    <label htmlFor="request">Request</label>
+            <form className={style.typeForm}>
+                <h3>Select the post you would like to create:</h3> 
+                <div className={style.radios}>
+                    <div>
+                        <input id="offer" onChange={handleChange} type="radio" name="type" value="Offer" />
+                        <label htmlFor="offer">Offer</label>
+                    </div>
+                    <div>
+                        <input id="request" onChange={handleChange} type="radio" name="type" value="Request" />
+                        <label htmlFor="request">Request</label>
+                    </div>
                 </div>
             </form>
             {selection ? (
                 offer ? (
                     <>
-                        <h2>New Offer</h2>
                         <form onSubmit={handleSubmit} encType="multipart/form-data">
+                        <h2>New Offer</h2>
                             <label htmlFor="title">Title:*</label>
-                            <input id="title" onChange={handleInputChange} type="text" name="title" placeholder="Title*" /><br/>
+                            <input id="title" onChange={handleInputChange} type="text" name="title" placeholder="Title" /><br/>
                             <label htmlFor="description">Description:*</label>
-                                <input id="description" onChange={handleInputChange} type="text" name="description" placeholder="Description*" /><br/>
+                                <input id="description" onChange={handleInputChange} type="text" name="description" placeholder="Description" /><br/>
                             <label htmlFor="location">Location:*</label>
-                                <input id="location" onChange={handleInputChange} type="text" name="location" placeholder="Location*" /><br/>
+                                <input id="location" onChange={handleInputChange} type="text" name="location" placeholder="Location" /><br/>
                             <label htmlFor="img">Upload image:*</label>
                             <input id="img" onChange={handleUploadChange} type="file" name="img" placeholder="Image" /><br/>
-                            <input type="submit" />
+                            <input className={style.submit} type="submit" />
+                             <p>Asterisks indicate required fields.</p>
                         </form>
-                        <p>Asterisks indicate required fields.</p>
                     </>
                 ) : (
                     <>
-                        <h2>New Request</h2>
                         <form onSubmit={handleSubmit}>
+                            <h2>New Request</h2>
                             <label htmlFor="title">Title:*</label>
-                                <input id="title" onChange={handleInputChange} type="text" name="title" placeholder="Title*" /><br/>
+                                <input id="title" onChange={handleInputChange} type="text" name="title" placeholder="Title" /><br/>
                             <label htmlFor="description">Description:*</label>
-                                <input id="description" onChange={handleInputChange} type="text" name="description" placeholder="Description*" /><br/>
+                                <input id="description" onChange={handleInputChange} type="text" name="description" placeholder="Description" /><br/>
                             <label htmlFor="img">Upload image:</label>
                                 <input id="img" onChange={handleUploadChange} type="file" name="img" /><br/>
-                            <input type="submit" />
+                            <input className={style.submit} type="submit" />
+                             <p>Asterisks indicate required fields.</p>
                         </form>
-                        <p>Asterisks indicate required fields.</p>
+                        
                     </>
                 )
             ) : (
 
-                <p>Please make a selection.</p>
+                null
 
             )}
 

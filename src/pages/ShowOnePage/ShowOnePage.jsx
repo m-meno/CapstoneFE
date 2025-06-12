@@ -1,7 +1,8 @@
 import Post from "../../components/Post/Post";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
+
 
 export default function ShowOnePage() {
     const { id } = useParams()
@@ -31,7 +32,7 @@ export default function ShowOnePage() {
 
     return (
         <>
-            <div className="single-post">
+            <div >
                 <Post key={post._id} post={post} />
             </div>
         </>

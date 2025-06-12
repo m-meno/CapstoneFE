@@ -32,10 +32,12 @@ export default function LoginForm( {setNewUser}) {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
-                <input onChange={handleChange} type="text" name="email" placeholder="Enter email..." />
-                <input onChange={handleChange} type="text" name="password" placeholder="Enter password..." />
-                <input type="submit" value="Login"/>
+            <form className={style.form} onSubmit={handleSubmit}>
+                <label htmlFor="email">Email:* </label>
+                    <input className={style.input} id="email" onChange={handleChange} type="text" name="email" placeholder="Email" /><br/>
+                <label htmlFor="password">Password:* </label>
+                    <input className={style.input} id="password" onChange={handleChange} type="text" name="password" placeholder="Password" /><br/>
+                <input  className={style.submit}  type="submit" value="Login"/>
                 <p>
                     Not a User?{" "}
                     <span className={style.toggle}

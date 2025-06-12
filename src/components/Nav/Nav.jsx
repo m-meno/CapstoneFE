@@ -4,6 +4,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { userInfo } from "../../context/user/userContext";
 import { useAuth } from "../../context/auth/authContext";
+import styles from "./Nav.module.css";
 
 export default function Nav() {
     const { user, setUser } = userInfo();
@@ -46,7 +47,7 @@ export default function Nav() {
                             <Link to="/dashboard">Dashboard</Link>
                         </li>
                         <li>
-                            <button onClick={handleLogout}>Logout</button>
+                            <button className={styles.logoutButton} onClick={handleLogout}>Logout</button>
                         </li>
                     </>
                 ) : (

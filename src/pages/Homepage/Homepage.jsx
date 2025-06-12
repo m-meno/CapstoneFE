@@ -4,6 +4,7 @@ import PostForm from "../../components/Forms/PostForm";
 import Card from "../../components/Card/Card";
 import { usePostList } from "../../context/post/postContext";
 import { useNavigate } from "react-router-dom";
+import styles from "./Homepage.module.css";
 
 
 
@@ -38,7 +39,9 @@ export default function Homepage() {
 
     return (
         <>
-        <li>
+        <div className={styles.page}>
+            <h1>Home</h1>
+        <div className={styles.filterBar}>
             <label>
                 <strong>Filter By:</strong>
                 <select onChange={handleFilter}>
@@ -47,11 +50,11 @@ export default function Homepage() {
                     <option value="Request">Requests</option>
                 </select>
             </label>
-        </li>
-        <div>
+        </div>
+        <div className ={styles.grid}>
             {posts.map((post) => {return <Card key={post._id} post={post}/>})}
         </div>
-        
+        </div>
         </>
     )
 
