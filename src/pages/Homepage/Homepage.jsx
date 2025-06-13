@@ -1,8 +1,6 @@
 import axios from "axios";
 import {useState, useEffect} from "react";
-import PostForm from "../../components/Forms/PostForm";
 import Card from "../../components/Card/Card";
-import { usePostList } from "../../context/post/postContext";
 import { useNavigate } from "react-router-dom";
 import styles from "./Homepage.module.css";
 
@@ -10,7 +8,6 @@ import styles from "./Homepage.module.css";
 
 export default function Homepage() {
     const [posts, setPosts] = useState([]);
-    // const {postList, setPostList} = usePostList();
     const nav = useNavigate();
 
 
@@ -36,6 +33,8 @@ export default function Homepage() {
         if(e.target.value) nav(`/type/${e.target.value}`);
         else nav("/")
     }
+
+    const sortedPosts = posts.sort((a, b)=> b.id-a.id)
 
     return (
         <>

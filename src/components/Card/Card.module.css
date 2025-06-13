@@ -6,6 +6,7 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   color: #1a1a1a;
   transition: background-color 0.3s ease;
+  min-height: 320px;
 }
 
 .card h2 {
@@ -32,8 +33,8 @@
 }
 
 .request {
-  background-color: #fef6e4; 
-  border-left: 6px solid #c77c36;
+  background-color: #e2dadd; 
+  border-left: 6px solid #6e4555;
 }
 
 .imageWrapper {
@@ -51,4 +52,12 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.noImgCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+    
 }

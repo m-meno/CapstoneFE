@@ -17,10 +17,11 @@ label {
   color: #333;
 }
 
-input[type="text"],
-input[type="password"],
-input[type="email"],
-input[type="file"] {
+.errorMsg{
+  text-align: center;
+}
+
+input {
   width: 100%;
   padding: 0.6rem;
   margin-bottom: 1rem;
@@ -34,9 +35,24 @@ input[type="radio"] {
   margin-right: 0.5rem;
 }
 
-.submit {
-  background-color: #4c8c4a;
-  color: white;
+.submitOffer {
+  background-color: #e5f4e3;
+  color: rgb(17, 16, 16);
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease-in-out;
+}
+.submitOffer:hover{
+  background-color: #acc7a9;
+  text-decoration: underline;
+}
+
+.submitRequest {
+  background-color:  #e2dadd;
+  color: rgb(27, 27, 27);
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 6px;
@@ -45,10 +61,10 @@ input[type="radio"] {
   transition: background-color 0.2s ease-in-out;
 }
 
-
-/* input[type="submit"]:hover {
-  background-color: #005fa3;
-} */
+.submitRequest:hover{
+  background-color: #ad969f;
+  text-decoration: underline;
+}
 
 p {
   margin-top: 1rem;
@@ -57,13 +73,13 @@ p {
 }
 
 .toggle {
-  color: #0077cc;
+  color: #6e4555;
   cursor: pointer;
   text-decoration: underline;
 }
 
 .toggle:hover {
-  color: #005fa3;
+  color: #5a8d58;
 }
 
 .radios{
@@ -73,4 +89,12 @@ p {
 
 .typeForm {
     text-align: center;
+}
+
+.auth{
+  background-color: #e5f4e3
+}
+
+.auth:hover{
+  background-color: #acc2ab
 }

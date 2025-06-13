@@ -1,95 +1,88 @@
 .postContainer {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
   background-color: #fff;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  max-width: 500px;
+  margin: 2rem auto;
+  gap: 2rem;
+  text-align: center;
 }
 
-.postImage {
+.offer {
+  background-color: #e5f4e3;
+  border-left: 6px solid #4c8c4a;
+}
+
+.request {
+  background-color: #e2dadd;
+  border-left: 6px solid #6e4555;
+}
+
+.imageWrapper {
+  position: relative;
   width: 100%;
-  max-height: 400px;
+  padding-top: 75%;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.imageWrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 1rem;
 }
 
-.postDetails {
-  margin-bottom: 1rem;
-}
-
-.postTitle {
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
   color: #222;
 }
 
-.postLocation {
+.location {
   font-size: 1rem;
-  color: #777;
+  color: #555;
 }
 
-.postDescription {
-  font-size: 1.1rem;
-  line-height: 1.5;
+.description {
+  font-size: 1rem;
   color: #333;
+  line-height: 1.5;
 }
 
 .buttonGroup {
-  display: flex;
   gap: 1rem;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+  text-align: center;
 }
 
-.button {
+.buttonGroup button {
   padding: 0.5rem 1rem;
-  font-size: 0.95rem;
-  border: none;
+  background-color: #fff;
+  color: #222;
+  border: 1px solid #2a2c2a;
   border-radius: 6px;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: background-color 0.2s ease;
+  margin: 1rem;
 }
 
-.editButton {
-  background-color: #1976d2;
-  color: white;
+.buttonGroup button:hover {
+  text-decoration: underline;
 }
 
-.deleteButton {
-  background-color: #d32f2f;
-  color: white;
+.submit:hover {
+  text-decoration: underline;
 }
 
-.button:hover {
-  filter: brightness(1.1);
-}
 
-.editForm {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  margin-top: 1rem;
-}
 
-.editForm input[type="text"],
-.editForm input[type="file"] {
-  padding: 0.6rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 1rem;
-}
 
-.editForm input[type="submit"] {
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  padding: 0.7rem;
-  font-size: 1rem;
-  border-radius: 6px;
-  cursor: pointer;
-}
 
-.editForm input[type="submit"]:hover {
-  background-color: #43a047;
-}
+
+

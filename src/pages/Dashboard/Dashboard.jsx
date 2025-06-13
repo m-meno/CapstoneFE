@@ -38,16 +38,18 @@ export default function Dashboard() {
         <>  
             <div className={style.dashboard}>
             <h1>Dashboard</h1>
-            <button className={style.button}onClick={handleClick}>Create a Post</button>
-            {createPost ? (
+            <div className={style.section}>
+                <div className={style.myPostTop}>
+                <h2>My Posts</h2> 
+                <button className={style.button} onClick={handleClick}>Create a Post</button>
+                </div>
+                {createPost ? (
             <div className={style.section}>
                 <PostForm />
             </div>
             ) : ( null 
 
             )}
-            <div className={style.section}>
-                <h2>My Posts</h2>
                 <div className={style.cardGrid}>
                 {userPosts.map((post) => { return <Card key={post._id} post={post} /> })}
                 </div>

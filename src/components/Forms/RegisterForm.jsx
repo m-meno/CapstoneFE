@@ -72,18 +72,25 @@ export default function RegisterForm({ setNewUser }) {
 
     return (
         <>
+         {error && (
+            <ul className={style.errorMsg}>
+                {error.map((msg)=> (
+                    <li>{msg}</li>
+                ))}
+            </ul>
+         )}
             <form className={style.form} onSubmit={handleSubmit}>
                 <label htmlFor="username">Username:* </label>
                     <input className={style.input} id="username"onChange={handleChange} type="text" name="username" placeholder="Name" /><br/>
                 <label htmlFor="email">Email:* </label>
                     <input className={style.input} id="email" onChange={handleChange} type="text" name="email" placeholder="Email" /><br/>
                 <label htmlFor="password">Password:* </label>
-                    <input className={style.input} id="password" onChange={handleChange} type="text" name="password" placeholder="Password" /><br/>
+                    <input className={style.input} id="password" onChange={handleChange} type="password" name="password" placeholder="Password" /><br/>
                 <label htmlFor="password2">Re-enter password:* </label>
-                    <input className={style.input} id="password2" onChange={handleChange} type="text" name="password2" placeholder="Confirm password" /><br/>
+                    <input className={style.input} id="password2" onChange={handleChange} type="password" name="password2" placeholder="Confirm password" /><br/>
                 <label htmlFor="location">Location:* </label>
                     <input className={style.input} id="location" onChange={handleChange} type="text" name="location" placeholder="City, State" /><br/>
-                <input  className={style.submit}  type="submit" value="Register" />
+                <input  className={style.auth}  type="submit" value="Register" />
                 <p>Already have an account?{" "}
                     <span className={style.toggle}
                         onClick={() => {
