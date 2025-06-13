@@ -40,6 +40,8 @@ export default function Homepage() {
         <>
         <div className={styles.page}>
             <h1>Home</h1>
+
+            <h2>Welcome to Gift & Grow, an app focused on promoting sustainability and community through the power of the gift economy!</h2>
         <div className={styles.filterBar}>
             <label>
                 <strong>Filter By:</strong>

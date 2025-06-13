@@ -28,6 +28,11 @@ a:hover {
   text-decoration: underline;         
 }
 
+img {
+ width: 150px;
+ height: auto;
+}
+
 button {
   background: none;
   border: none;

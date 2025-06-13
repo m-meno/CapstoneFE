@@ -5,12 +5,13 @@ import { useNavigate, useParams } from "react-router-dom";
 import { userInfo } from "../../context/user/userContext";
 import { useAuth } from "../../context/auth/authContext";
 import styles from "./Nav.module.css";
+import logo from "../../images/logo.jpeg"
 
 export default function Nav() {
     const { user, setUser } = userInfo();
     const { cookies, logout } = useAuth();
     const nav = useNavigate();
-
+    
     useEffect(() => {
         async function checkUser() {
             if (cookies.token && !user) {
