@@ -2,7 +2,7 @@
 
 ## Description
 
-Give is a community-focused application designed to foster sustainability and generosity through a gift economy.  
+**Give & Grow** is an application designed to foster sustainability and community through the power of the gift economy.  
 Users can create an account and login to:
 
 - Offer items to their neighbors for free
